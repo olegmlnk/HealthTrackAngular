@@ -35,6 +35,7 @@
       >
         Login
       </button>
+      <p *ngIf="loginError" class="text-sm text-red-500 mt-2">{{ loginError }}</p>
     </form>
 
     <p class="mt-4 text-center text-sm">
