@@ -1,12 +1,24 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { ExampleModalComponent } from './shared/components/example-modal/example-modal';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('HealthTrack');
+  constructor(private dialog: MatDialog) {}
+
+  openModal(){
+    this.dialog.open(ExampleModalComponent,{
+      width: '400px',
+      data: {
+        title: 'Session Expired',
+        message: 'Your session has expired.'
+      }
+    });
+  }
+
 }
